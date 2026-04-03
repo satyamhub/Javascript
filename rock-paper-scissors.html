@@ -16,7 +16,7 @@
         looses: 0,
         ties: 0,
       };
-      localStorage.setItem("score", JSON.parse());
+      conlocalStorage.setItem("score", JSON.parse());
 
       function playGame(playerMove) {
         const randomNumber = Math.random();
@@ -68,7 +68,7 @@
        
 
          localStorage.setItem("score", JSON.stringify(score));
-         
+
         alert(
           `You picked ${playerMove}. Computer picked ${computerMove}. ${result} 
            Wins: ${score.wins}    
