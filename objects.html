@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Objects</title>
+    <body>
+      <script>
+        const product = {
+          name: "socks",
+          price: 1080,
+        };
+        console.log(product.name); //access object Property
+
+        product.name = "cotton-socks"; //change object Property
+        console.log(product);
+
+        product.newProperty = "yes"; //add object Property
+        console.log(product);
+
+        delete product.newProperty; //delete property
+        console.log(product);
+      </script>
+    </body>
+  </head>
+</html>
