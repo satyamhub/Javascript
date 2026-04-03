@@ -16,8 +16,8 @@
         looses: 0,
         ties: 0,
       };
-      localStorage=setItem('score',JSON.parse(score));
-      
+      localStorage.setItem('score',JSON.parse(score));
+
       function playGame(playerMove) {
         const randomNumber = Math.random();
         let computerMove = "";
