@@ -61,8 +61,6 @@
           score.ties += 1;
         }
 
-        
-
         alert(
           `You picked ${playerMove}. Computer picked ${computerMove}. ${result} 
            Wins: ${score.wins}    
@@ -78,7 +76,7 @@
         score.ties = 0;
         alert("Score Reset");
       }
-      
+      localStorage.setItem("score", JSON.stringify(score));
     </script>
   </body>
 </html>
