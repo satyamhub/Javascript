@@ -11,7 +11,13 @@
     <button onclick="resetScore()">Reset Score</button>
 
     <script>
-      const score = JSON.parse(localStorage.getItem("score"));
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
+      updateScoreElement();
 
       function playGame(playerMove) {
         const randomNumber = Math.random();
@@ -56,15 +62,16 @@
         if (result == "You Win") {
           score.wins += 1;
         } else if (result == "You Lose") {
-          score.looses += 1;
+          score.losses += 1;
         } else if (result == "Tie") {
           score.ties += 1;
         }
-        localStorage.setItem(JSON.stringify("score"));
+        localStorage.setItem("score", JSON.stringify(score));
+        updateScoreElement();
         alert(
           `You picked ${playerMove}. Computer picked ${computerMove}. ${result} 
            Wins: ${score.wins}    
-           Looses: ${score.looses}, 
+           Losses: ${score.losses}, 
            Ties: ${score.ties} 
           `,
         );
@@ -72,9 +79,15 @@
 
       function resetScore() {
         score.wins = 0;
-        score.looses = 0;
+        score.losses = 0;
         score.ties = 0;
+        localStorage.setItem("score", JSON.stringify(score));
+        updateScoreElement();
         alert("Score Reset");
+      }
+
+      function updateScoreElement() {
+        document.title = `Rock Paper Scissors - Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
     </script>
   </body>
