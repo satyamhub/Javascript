@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Arrays And Loops</title>
+  </head>
+  <body>
+    <script>
+      const arr = [10, 20, 30, "Satyam", true, { name: "Socks" }];
+      console.log(arr);
+      // console.log((arr[0] = arr[1]));
+      console.log(arr[5]);
+
+      console.log(typeof arr); //object
+      console.log(Array.isArray(arr)); //true
+
+      console.log(arr.length); //6
+
+      arr.push(100);
+      console.log(arr);
+
+      arr.splice(5, 2); //removes two value from index 5
+      console.log(arr);
+
+      arr.pop(); //deletes last index value
+      arr.pop();
+      console.log(arr);
+
+      let i = 0;
+
+      while (i < arr.length) {
+        console.log(arr[i]);
+        i++;
+      }
+    </script>
+  </body>
+</html>
