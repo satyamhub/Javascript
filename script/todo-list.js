@@ -1,11 +1,6 @@
-const todoaObject = [
-  {
-    name: "satyam",
-  },
-  {
-    date: 19 / 8 / 2004,
-  },
-];
+const todoObject = [];
+
+
 
 function handleTodoKeydown(event) {
   if (event.key == "Enter") {
@@ -16,16 +11,18 @@ function handleTodoKeydown(event) {
 function addTodo() {
   const inputElement = document.querySelector(".js-name-input");
   const name = inputElement.value;
+  //console.log(name);
 
   const dateInputElement = document.querySelector(".js-date-input");
   const date = dateInputElement.value;
+  //console.log(date);
 
   if (name == "" || date == "") {
     alert("Fields Are Empty");
     return false;
   }
-  todoList.push({ name: name, date: date });
-  console.log(todoList);
+  todoObject.push({ name: name, date: date });
+  //console.log(todoObject);
 
   inputElement.value = "";
   dateInputElement.value = "";
@@ -34,11 +31,11 @@ function addTodo() {
 
 function displayTodo() {
   let todoListHTML = "";
-  for (let i = 0; i < todoList.length; i++) {
+  for (let i = 0; i < todoObject.length; i++) {
     todoListHTML += `
-    <p>
-    ${todoList[i]} <button onclick="todoList.splice(${i}, 1);   displayTodo()">Delete</button>
-    </p>
+    <div>${todoObject[i].name}</div>
+    <div>${todoObject[i].date}</div>
+    <button onclick="todoObject.splice(${i}, 1);   displayTodo()" class="delete-todo-button">Delete</button>
     `;
   }
   document.querySelector(".js-todo-list").innerHTML = todoListHTML;
